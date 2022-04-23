@@ -2,12 +2,12 @@ import { App, Plugin } from 'vue'
 
 {{ importPlugins }}
 
-const MYKitPlugin: Plugin = {
+const DUiPlugin: Plugin = {
   install(app: App) {
     {{ installPlugins }}
   }
 }
 
-export default MYKitPlugin
+export default DUiPlugin
 
 {{ exportPlugins }}

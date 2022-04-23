@@ -4,7 +4,7 @@ import { ButtonPlugin } from './Button'
 import { MessagePlugin } from './Message'
 import { TestPlugin } from './Test'
 
-const MYKitPlugin: Plugin = {
+const DUiPlugin: Plugin = {
   install(app: App) {
     ButtonPlugin.install?.(app)
     MessagePlugin.install?.(app)
@@ -12,7 +12,7 @@ const MYKitPlugin: Plugin = {
   }
 }
 
-export default MYKitPlugin
+export default DUiPlugin
 
 export * from './Button'
 export * from './Message'
