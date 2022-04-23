@@ -65,12 +65,13 @@ const routerTplReplacer = (listFileContent) => {
   )
   const routerMeta = {
     routes: listFileContent.map((comp) => {
-      return `{
-    title: '${comp.compZhName}',
-    name: '${comp.compName}',
-    path: '/components/${comp.compName}',
-    component: () => import('packages/${comp.compName}/docs/README.md'),
-  }`
+      return `
+      {
+        meta: { title: '${comp.compZhName}' },
+        name: '${comp.compName}',
+        path: '/components/${comp.compName}',
+        component: () => import('packages/${comp.compName}/docs/README.md')
+      }`
     })
   }
   const routerFileContent = handlebars.compile(routerFileTpl, {
@@ -92,11 +93,11 @@ const installTsTplReplacer = (listFileContent) => {
   const installMeta = {
     importPlugins: listFileContent
       .map(
-        ({ compName }) => `import { ${compName}Plugin } from './${compName}';`
+        ({ compName }) => `import { ${compName}Plugin } from './${compName}'`
       )
       .join('\n'),
     installPlugins: listFileContent
-      .map(({ compName }) => `${compName}Plugin.install?.(app);`)
+      .map(({ compName }) => `${compName}Plugin.install?.(app)`)
       .join('\n    '),
     exportPlugins: listFileContent
       .map(({ compName }) => `export * from './${compName}'`)

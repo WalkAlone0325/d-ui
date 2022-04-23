@@ -3,9 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "dev": "vite --config ./build/base.config.ts",
+    "build:doc": "vue-tsc --noEmit && vite build --config ./build/doc.config.ts && node script/copyDir.js",
+    "build:lib": "vue-tsc --noEmit && vite build --config ./build/lib.config.ts",
+    "preview": "vite preview",
+    "gen": "node ./scripts/genNewComp/index.js"
   },
   "dependencies": {
     "vue": "^3.2.25",
@@ -22,6 +24,8 @@
     "prismjs": "^1.28.0",
     "typescript": "^4.5.4",
     "vite": "^2.9.5",
+    "vite-plugin-copy": "^0.1.6",
+    "vite-plugin-dts": "^1.1.0",
     "vite-plugin-md": "^0.12.4",
     "vue-tsc": "^0.34.7"
   }

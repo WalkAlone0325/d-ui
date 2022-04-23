@@ -3,10 +3,8 @@ import {{ compName }} from './src/index.vue'
 
 export const {{ compName }}Plugin: Plugin = {
   install(app: App) {
-    app.component('my-{{ compClassName }}', {{ compName }})
-  },
+    app.component('d-{{ compClassName }}', {{ compName }})
+  }
 }
 
-export {
-  {{ compName }}
-}
+export { {{ compName }} }

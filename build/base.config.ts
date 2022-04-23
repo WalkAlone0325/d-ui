@@ -8,8 +8,8 @@ export default defineConfig({
   plugins: [vue({ include: [/\.vue$/, /\.md$/] }), Markdown()],
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src'),
-      packages: resolve(__dirname, './packages')
+      '@': resolve(__dirname, '../src'),
+      packages: resolve(__dirname, '../packages')
     }
   }
 })
